@@ -16,7 +16,8 @@ en:
     profile: "Profile"
     settings: "Settings"
     log_out: "Log out"
-    page_admin: "Admin page"
+    page_admin: "Admin Page"
+    order_manage: "Order Manage"
   footer:
     copy_right: "@2020 Copy right Foods And Drinks"
   product:
@@ -36,6 +37,8 @@ en:
     google: "Login via google"
     facebook: "Login via facebook"
     forgot_password: "Forgot password?"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
   user:
     please_log_in: "Please log in!"
     not_found: "User not found"
@@ -93,7 +96,7 @@ en:
     not_found: "Not found order"
     old_price: "Total old price: "
     discount: "Discount: "
-    status_error: "Please check your order status!"
+    status_error: "You can't %{excepted} because your status is %{status}"
     status_success: "Updated Success. Thank you!"
     status_fail: "Fail to Update!"
     not_found: "Order not found!"
@@ -135,6 +138,7 @@ en:
     delete_success: "Deleted Success"
     update_success: "Updated Success"
     delete_fail: "Deleted Fail"
+    carts: "Carts (%{count})"
   errors:
     the_form_contains:
       zero: "No error"

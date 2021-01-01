@@ -1,10 +1,16 @@
 <div class="card user-login">
   <article class="card-body form-login">
-    <a href="" class="float-right btn btn-outline-primary"><%= t "sessions.sign_up" %></a>
-    <h4 class="card-title mb-4 mt-1"><%= t "sessions.sign_in" %></h4>
+    <%= link_to t("sessions.sign_in"),new_user_session_path , class: "float-right btn btn-outline-primary" %>
+    <h4 class="card-title mb-4 mt-1"><%= t "sessions.sign_up" %></h4>
     <p>
-      <a href="" class="btn btn-block btn-outline-info"><i class="fa fa-google icon"></i><%= t "sessions.google" %></a>
-      <a href="" class="btn btn-block btn-outline-primary"><i class="fa fa-facebook icon"></i><%= t "sessions.facebook" %></a>
+      <%= link_to  user_google_oauth2_omniauth_authorize_path,class: "btn btn-block btn-outline-primary" do %>
+        <i class="fa fa-google icon"></i>
+        <%= t("sessions.google") %>
+      <% end %>
+      <%= link_to  user_facebook_omniauth_authorize_path, class: "btn btn-block btn-outline-primary" do %>
+          <i class="fa fa-facebook icon"></i>
+          <%= t("sessions.facebook") %>
+      <% end %>
     </p>
     <hr>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -14,19 +20,19 @@
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label t("user.name") %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label t("sessions.password") %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation %>
+        <%= f.label t("sessions.password_confirmation") %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
+        <%= f.submit t("sessions.sign_up"), class: "btn btn-primary" %>
       </div>
     <% end %>
 

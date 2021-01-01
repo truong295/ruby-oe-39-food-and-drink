@@ -1,8 +1,8 @@
 <tr>
   <td>
     <div class="product-item" id="product_item_<%=order.product.id %>">
-      <%= link_to @product do %>
-        <%= load_image_product @product %>
+      <%= link_to order.product do %>
+        <%= load_image_product order.product %>
       <% end %>
       <div class="product-info">
       <h4 class="product-title">
@@ -16,7 +16,7 @@
   <td class="text-center">
   <div class="card custom-quantity">
     <div class="count-input">
-      <%= form_tag(cart_path(@product.id), method: :patch, class: "form-a", remote: true) do  %>
+      <%= form_tag(cart_path(order.product.id), method: :patch, class: "form-a", remote: true) do  %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= hidden_field_tag(:product_id, order.product.id, class: "p-id") %>
         <%= number_field_tag(:quantity, order.quantity.to_i, min: Settings.product.min_quantity, max: order.product.quantity, class: "form-control mb-5 input-lg ajax-input",id: "ajax-input") %>

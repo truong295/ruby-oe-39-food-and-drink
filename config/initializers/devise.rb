@@ -25,6 +25,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.omniauth :facebook, "1490192457847512", "8f1ae37126f31c74a27bb6ac57bb5464", scope: 'email', info_fields: 'email,name'
+  config.omniauth :google_oauth2, "198958254400-glikn6136tmrgd159jteojt3buh4v7q7.apps.googleusercontent.com", "M5euCHT4-MKIImBVUp2n6lMN", scope: 'email', info_fields: 'email,name'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

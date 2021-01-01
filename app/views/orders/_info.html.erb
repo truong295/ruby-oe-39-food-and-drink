@@ -14,7 +14,7 @@
       <%= f.telephone_field :phone_number, class: "form-control", value: current_user.phone_number %>
       <div class="time-delivey">
         <%= f.label :delivery_time, t("orders.info_ship.delivery_time"), class:"delivery" %>
-        <%= f.date_field(:delivery_time, {min: Date.today}) %>
+        <%= f.date_field(:delivery_time, {min: Date.today, value: Date.today}) %>
       </div>
       <%= f.submit yield(:button_text), class: "btn-checkout" %>
     </div>

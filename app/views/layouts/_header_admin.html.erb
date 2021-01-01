@@ -27,7 +27,8 @@
                 <%= t "header.account" %><b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to t("header.page_admin"), admin_root_path, class: "dropdown-item" %></li>
+                <li><%= link_to t("header.order_manager"), admin_root_path, class: "dropdown-item" %></li>
+                <li><%= link_to t("header.page_admin"), "http://localhost:3000/admin", class: "dropdown-item" %></li>
                 <li><%= link_to t("header.profile"), current_user, class: "dropdown-item" %></li>
                 <li><%= link_to t("header.settings"), "#", class: "dropdown-item" %></li>
                 <li class="divider"></li>

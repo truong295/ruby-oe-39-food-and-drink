@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
   scope "(:locale)", locale: /en|vi/ do
-    root "static_pages#home"
-    devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register" }
+    # root "static_pages#home"
+    devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register" },
+     skip: :omniauth_callbacks
     get "/search", to: "searchs#index"
     get "/clear-cart", to: "carts#clear_cart", as: :clear_cart
     post "/orders/new", to: "orders#voucher"

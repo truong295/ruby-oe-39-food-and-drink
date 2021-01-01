@@ -2,9 +2,9 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i(show)
 
   def show
-    @products = @category.products.order_alphabet_name
-                         .page(params[:page])
-                         .per(Settings.page.per_page)
+    @products = @category.products.order_alphabet_name.
+                         page(params[:page]).
+                         per(Settings.page.per_page)
   end
 
   private

@@ -50,7 +50,8 @@
               </a>
               <ul class="dropdown-menu">
                 <% if check_user_admin? %>
-                  <li><%= link_to t("header.page_admin"), admin_root_path, class: "dropdown-item" %></li>
+                  <li><%= link_to t("header.order_manager"), admin_root_path, class: "dropdown-item" %></li>
+                  <li><%= link_to t("header.page_admin"), "http://localhost:3000/admin", class: "dropdown-item" %></li>
                 <% end %>
                 <li><%= link_to t("header.profile"), current_user, class: "dropdown-item" %></li>
                 <li><%= link_to t("header.settings"), "#", class: "dropdown-item" %></li>
