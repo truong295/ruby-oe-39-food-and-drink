@@ -90,7 +90,7 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order
-    if @order.accepted?
+    if @order.accepted? || @order.waiting?
       Order.transaction do
         @order.cancel
         flash[:success] = t "order.status_success"
@@ -110,11 +110,11 @@ class OrdersController < ApplicationController
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     store_location
     flash[:danger] = t "orders.log_order"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def save_success

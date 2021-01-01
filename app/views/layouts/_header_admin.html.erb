@@ -21,7 +21,7 @@
               <a class="dropdown-item" href="#"><%= link_to t("english"), locale: :en %></a>
             </div>
           </li>
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <li class="dropdown nav-item">
               <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <%= t "header.account" %><b class="caret"></b>
@@ -32,12 +32,12 @@
                 <li><%= link_to t("header.settings"), "#", class: "dropdown-item" %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to t("header.log_out"), logout_path, method: "delete", class: "dropdown-item" %>
+                  <%= link_to t("header.log_out"), destroy_user_session_path, method: "delete", class: "dropdown-item" %>
                 </li>
               </ul>
             </li>
           <% else %>
-            <li class="nav-item"><%= link_to t("header.log_in"), login_path,  class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to t("header.log_in"), new_user_session_path,  class: "nav-link" %></li>
           <% end %>
         </ul>
       </div>
