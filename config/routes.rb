@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
-    get "/login", to: "sessions#new"
+    devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register" }
     get "/search", to: "searchs#index"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     get "/clear-cart", to: "carts#clear_cart", as: :clear_cart
     post "/orders/new", to: "orders#voucher"
     delete "/orders/new", to: "orders#cancel_voucher"
-    resources :products, only: :show
+    resources :products, only: :show do
+      resources :ratings, only: %i(index create)
+    end
     resources :categories, only: :show
     resources :users do
       resources :orders, only: %i(index show update) do

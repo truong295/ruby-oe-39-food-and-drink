@@ -4,7 +4,6 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.1"
 
 gem "active_storage_validations", "0.8.2"
-gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.0.0"
 gem "bootstrap-kaminari-views"
@@ -26,6 +25,7 @@ gem "sass-rails", ">= 6"
 gem "therubyracer"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
+gem "devise"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
