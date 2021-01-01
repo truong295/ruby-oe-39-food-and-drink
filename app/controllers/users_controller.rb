@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   private
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     store_location
     flash[:danger] = t "user.please_log_in"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def load_user

@@ -7,7 +7,7 @@
       <a href="" class="btn btn-block btn-outline-primary"><i class="fa fa-facebook icon"></i><%= t "sessions.facebook" %></a>
     </p>
     <hr>
-    <%= form_for :session, url: login_path do |f| %>
+    <%= form_for :session, url: new_user_session_path do |f| %>
       <div class="form-group">
         <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
       </div>
