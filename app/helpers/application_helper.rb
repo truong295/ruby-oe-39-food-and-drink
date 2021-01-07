@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def load_image_product product
-    image_tag (product.images.attached? ? product.images : "default.jpeg"),
+    image_tag (product.images.attached? ? product.images.last : "default.jpeg"),
               class: "pic-4"
   end
 end

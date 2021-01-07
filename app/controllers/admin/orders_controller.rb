@@ -2,8 +2,8 @@ class Admin::OrdersController < Admin::BaseController
   before_action :load_order, only: %i(update)
 
   def index
-    @orders = Order.by_created_at.page(params[:page])
-                   .per(Settings.page.per_page)
+    @orders = Order.by_id.page(params[:page])
+                       .per(Settings.page.per_page)
   end
 
   def update

@@ -27,7 +27,6 @@ class CartsController < ApplicationController
       @carts[params[:product_id]] = params[:quantity].to_i
     end
     session[:carts] = @carts
-    flash[:success] = t "carts.add_success"
     respond_to do |format|
       format.js
     end
@@ -44,7 +43,6 @@ class CartsController < ApplicationController
 
   def destroy
     if @carts.reject!{|key| key.to_i == params[:id].to_i}
-      flash[:success] = t "carts.delete_success"
       @id = params[:id]
       total_price
     else
@@ -84,6 +82,5 @@ class CartsController < ApplicationController
     @id = params[:product_id]
     session[:carts] = @carts
     total_price
-    flash[:success] = t "carts.update_success"
   end
 end

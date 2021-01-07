@@ -18,9 +18,9 @@ class OrdersController < ApplicationController
   def update
     status = params[:status].to_i
     if status == Order.statuses[:delivered]
-      deliver_order
+      deliver_order "submit"
     elsif status == Order.statuses[:canceled]
-      cancel_order
+      cancel_order "cancel"
     else
       flash[:danger] = t "order.status_error"
     end
@@ -89,23 +89,23 @@ class OrdersController < ApplicationController
     redirect_to user_orders_path
   end
 
-  def cancel_order
+  def cancel_order status
     if @order.accepted? || @order.waiting?
       Order.transaction do
         @order.cancel
         flash[:success] = t "order.status_success"
       end
     else
-      flash[:danger] = t "order.status_error"
+      flash[:danger] = t("order.status_error", status: @order.status, excepted: status)
     end
   end
 
-  def deliver_order
+  def deliver_order status
     if @order.shipping?
       @order.delivered!
       flash[:success] = t "order.status_success"
     else
-      flash[:danger] = t "order.status_error"
+      flash[:danger] = t("order.status_error", status: @order.status, excepted: status)
     end
   end
 

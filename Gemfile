@@ -16,6 +16,7 @@ gem "image_processing", "1.9.3"
 gem "jbuilder", "~> 2.7"
 gem "jquery-rails"
 gem "kaminari"
+gem 'bootstrap4-kaminari-views'
 gem "mini_magick", "4.9.5"
 gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 4.1"
@@ -26,6 +27,11 @@ gem "therubyracer"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "devise"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
+gem "rails_admin"
+gem "pg"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

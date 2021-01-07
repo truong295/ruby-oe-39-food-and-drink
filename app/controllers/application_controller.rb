@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_category
-    @categories = Category.orders_alphabet_category.select(:id, :name)
+    @categories = Category.orders_alphabet_category.where(parent_id: !nil).select(:id, :name)
   end
 end
