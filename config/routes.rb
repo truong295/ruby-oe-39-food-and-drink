@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
+    get "/contact", to: "static_pages#contact"
     devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", password: "secret", confirmation: "verification", unlock: "unblock", registration: "register" },
      skip: :omniauth_callbacks
     get "/search", to: "searchs#index"
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
     namespace :admin do
       root "base#home"
       resources :orders, only: %i(index update)
+      resources :products do
+        collection {post :import}
+      end
     end
     resources :orders, only: %i(new create)
   end

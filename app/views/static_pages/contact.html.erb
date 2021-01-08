@@ -1,0 +1,8 @@
+<div class="container text-center">
+  <hr>
+    <h1><%= t "product.list_product" %></h1>
+  <hr>
+  <div class="row">
+    <%= render partial: "products/product", collection: @recent_products, as: "product" || t("product.product_nil") %>
+  </div>
+</div>
