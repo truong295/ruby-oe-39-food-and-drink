@@ -36,4 +36,9 @@ module SessionsHelper
   def check_user_admin?
     current_user.admin?
   end
+
+  def recent_products
+    session[:recents] ||=Array.new
+    @recents = session[:recents].take(4)
+  end
 end

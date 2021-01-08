@@ -1,8 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :load_product, only: %i(show)
+  before_action :load_product, only: :show
+  before_action :recent_products, only: %i(show)
 
   def show
     @rating = Rating.new
+    unless @recents.include? @product.id
+      @recents.unshift(@product.id)
+    end
+    session[:recents] = @recents
   end
 
   private
