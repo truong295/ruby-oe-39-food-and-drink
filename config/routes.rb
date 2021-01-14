@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     get "/clear-cart", to: "carts#clear_cart", as: :clear_cart
     post "/orders/new", to: "orders#voucher"
     delete "/orders/new", to: "orders#cancel_voucher"
-    resources :products, only: :show do
+    resources :products, only: %i(show index) do
+      get :autocomplete_product_name, :on => :collection
       resources :ratings, only: %i(index create)
     end
     resources :categories, only: :show

@@ -8,8 +8,9 @@
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <div class="form-inline">
-          <%= form_tag(search_path, method: :get) do %>
-            <%= text_field_tag :key, @key, class: "form-control", placeholder: t("search.title") %>
+
+          <%= form_tag(search_path, method: :get) do  %>
+            <%= autocomplete_field_tag :name ,"", autocomplete_product_name_products_path %>
             <%= button_tag(type:"submit", class: "btn btn-outline-default") do %>
               <i class="fa fa-search"></i>
             <% end %>
